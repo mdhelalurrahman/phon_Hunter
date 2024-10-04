@@ -40,7 +40,7 @@ const displayData = (phones, dataLimite) => {
               <h2 class="card-title">${phone.phone_name}</h2>
               <p>If a dog chews shoes whose shoes does he choose?</p>
               <div class="card-actions">
-                <button className="btn" onClick={()=>document.getElementById('my_modal_1').showModal()}>open modal</button>
+                <button class="btn" onclick="showModal('${phone.slug}')">open modal</button>
             </div>
                `;
     phoneContainer.appendChild(div);
@@ -82,9 +82,14 @@ const showModal = async (id) => {
 };
 
 const modalDetailsData = (phone) => {
-  console.log(phone.name);
+  console.log(phone.mainFeatures.storage);
   const phoneName = document.getElementById("phone_name");
-  console.log(phoneName);
+  phoneName.innerText = phone.name;
+  const imgTag = document.getElementById("imgTag");
+  imgTag.src = phone.image;
+  document.getElementById("store").innerText = phone.mainFeatures.storage;
+  // my_modal_1.showModal();
+  document.getElementById("my_modal_1").showModal();
 };
 
 // loadData("apple");
